@@ -1,0 +1,9 @@
+!SESSION 2020-11-02 12:07:56.966 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.8.0_271
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.equinox.registry 2 0 2020-11-02 12:08:16.287
+!MESSAGE The extensions and extension-points from the bundle "gov.sandia.jess" are ignored. The bundle is not marked as singleton. 
