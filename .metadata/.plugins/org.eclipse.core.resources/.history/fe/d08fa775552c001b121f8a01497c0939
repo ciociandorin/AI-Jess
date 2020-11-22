@@ -1,0 +1,76 @@
+*/; - cer roșu → cer senin ( !precipitații, ger)                      
+*/; - ceata seara/dimineața → cald                                    
+*/; - nori cumulus → vreme buna                                       
+*/; - nori cumulus + vânt N→E ⇒ nori nimbostratus                    
+*/; - nori cirrocumulus + vânt N→E ⇒ ploaie                          
+*/; - nori stratocumulus + vânt NE→S ⇒ nori cumulonimbus
+*/; - nori nimbostratus + vânt SV→N ⇒ ploaie scurta
+*/; - nori nimbostratus + vânt NE→S ⇒ ploaie lunga
+*/; - nori cumulonimbus + vizibili înainte de miezul nopții ⇒ zăpadă
+*/; - nori cirrostratus + vânt NE→S ⇒ ploaie înainte cu 15-24 ore
+*/; - nori altostratus + NE→S ⇒ ploaie inaite cu o zi (cer innorat)
+*/; - nori altocumulus + vânt N→S ⇒ ploaie cu 15-20 înainte*/
+
+*/; SABLOANE
+*/; (multislot ziua) doar pentru identificare
+
+(deftemplate Specificatii
+    (multislot ziua)  
+    (slot timp)
+    (multislot cer)
+    (multislot ceata)
+    (slot nori)
+    (multislot vant))
+
+*/; FAPTE
+
+(assert (Specificatii(ziua Ziua A)(cer rosu)(nori asd)))
+(assert (Specificatii(ziua Ziua B)(timp dimineata)(ceata 1)))
+(assert (Specificatii(ziua Ziua C)(nori cumulus)))
+(assert (Specificatii(ziua Ziua D)(nori cumulus)(vant N E)))
+(assert (Specificatii(ziua Ziua E)(nori cirrocumulus)(vant N E)))
+(assert (Specificatii(ziua Ziua F)(nori stratocumulus)(vant NE S)))
+(assert (Specificatii(ziua Ziua G)(nori nimbostratus)(vant SV N)))
+(assert (Specificatii(ziua Ziua H)(nori nimbostratus)(vant NE S)))
+(assert (Specificatii(ziua Ziua I)(nori nimbostratus)(vant NE S)))
+
+
+
+*/; REGULI
+
+(defrule cerSenin (Specificatii(ziua $?ziua)(cer rosu))
+    =>
+    (printout t ?ziua ": Cer senin maine." crlf)) 
+
+(defrule cald (or (Specificatii(ziua $?ziua)(timp seara)(ceata 1)) (Specificatii(ziua $?ziua)(timp dimineata)(ceata 1)))
+    =>
+    (printout t ?ziua ": Cald." crlf))
+
+(defrule vremeBuna (Specificatii(ziua $?ziua)(nori cumulus))
+    =>
+    (printout t ?ziua ": Vreme buna." crlf)) 
+
+(defrule noriNimbostratus (Specificatii(ziua $?ziua)(nori cumulus)(vant N E))
+    =>
+    (printout t ?ziua ": Nori nimbostratus." crlf))
+
+(defrule ploaie (Specificatii(ziua $?ziua)(nori cirrocumulus)(vant N E))
+    =>
+    (printout t ?ziua ": Ploaie." crlf))
+
+(defrule noriCumulonimbus (Specificatii(ziua $?ziua)(nori stratocumulus)(vant NE S))
+    =>
+    (printout t ?ziua ": Nori cumulonimbus." crlf))
+
+(defrule ploaieScurta (Specificatii(ziua $?ziua)(nori nimbostratus)(vant SV N))
+    =>
+    (printout t ?ziua ": Ploaie scurta." crlf))
+
+(defrule ploaieLunga (Specificatii(ziua $?ziua)(nori nimbostratus)(vant NE S))
+    =>
+    (printout t ?ziua ": Ploaie lunga." crlf))
+
+
+
+
+(run)

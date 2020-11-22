@@ -1,0 +1,42 @@
+*/; - cer roșu → cer senin ( !precipitații, ger)                      
+*/; - ceata seara/dimineața → cald                                    
+*/; - nori cumulus → vreme buna                                       
+*/; - nori cumulus + vânt N→E ⇒ nori nimbostratus                    
+*/; - nori cirrocumulus + vânt N→E ⇒ ploaie                          
+*/; - nori stratocumulus + vânt NE→S ⇒ nori cumulonimbus
+*/; - nori nimbostratus + vânt SV→N ⇒ ploaie scurta
+*/; - nori nimbostratus + vânt NE→S ⇒ ploaie lunga
+*/; - nori cumulonimbus + vizibili înainte de miezul nopții ⇒ zăpadă
+*/; - nori cirrostratus + vânt NE→S ⇒ ploaie înainte cu 15-24 ore
+*/; - nori altostratus + NE→S ⇒ ploaie inaite cu o zi (cer innorat)
+*/; - nori altocumulus + vânt N→S ⇒ ploaie cu 15-20 înainte*/
+
+*/; SABLOANE
+*/; (multislot ziua) doar pentru identificare
+
+(deftemplate Specificatii
+    (multislot ziua)  
+    (multislot cer)
+    (multislot ceata)
+    (slot nori)
+    (multislot vant))
+
+*/; FAPTE
+
+(assert (Specificatii(ziua Ziua A)(cer rosu)(ceata nil)(nori nil)(vant nil)))
+(assert (Specificatii(ziua Ziua B)(cer nil)(ceata ziua)(nori nil)(vant nil)))
+
+*/; REGULI
+
+(defrule cerRosu (Specificatii(ziua $?ziua)(cer rosu)(ceata nil)(nori nil)(vant nil))
+    =>
+    (printout t $?ziua ": Cer senin maine." crlf)) 
+
+(reset)
+(facts)
+
+(defrule cald (or (Specificatii(ziua ?ziua)(cer nil)(ceata seara)(nori nil)(vant nil)) (Specificatii(ziua ?ziua)(cer nil)(ceata dimineata)(nori nil)(vant nil)))
+    =>
+    (printout t ?ziua ": Cald." crlf)) (run)
+
+
