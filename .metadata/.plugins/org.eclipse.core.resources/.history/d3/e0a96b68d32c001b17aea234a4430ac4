@@ -1,0 +1,54 @@
+; Reguli enunt
+
+; - mâncăruri complicate ⇒ vinuri simple
+; - mâncăruri simple ⇒ vinuri simple
+; - vin sec alb/roșu → ~~vin dulceag~~ → vin sec alb/roșu
+; - vin alb sec → vin roșu sec
+; - vin roșu → vin alb foarte dulce
+; - vin slab → vin tare
+; - vin nou → vin vechi
+; - vin nespumant → vin șampanie/spumant → !~~vin nespumant~~
+; - !~~vin nespumant~~ → vin șampanie/spumant → vin nespumant
+; - finele pranzului → vin rosu
+; - finele pranzului → vin licuros
+; - parcursul pranzului → vin sec alb/rosu/toata gama
+
+; Reguli declarate
+
+; carene porc ⇒ vin rous sec
+; carne vita ⇒ vin rosu sec
+; carne miel ⇒ vin rosu sec
+; vanat ⇒ vin rosu sec
+; carne pui ⇒ vin alb sec
+; carne curcan ⇒ vin rosu sec
+; peste ⇒ vin alb sec
+; peste afumat ⇒ vin alb
+
+; caren porc - 
+
+; SABLOANE
+
+(deftemplate Meniu
+    (multislot comanda)
+    (multislot felul1)
+    (multislot felul2)
+    (multislot timp))
+
+; FAPTE
+
+(assert(Meniu(comanda Comanda A)(felul2 carne de porc)))
+(assert(Meniu(comanda Comanda B)(felul2 carne de vita)))
+(assert(Meniu(comanda Comanda C)(felul2 carne de miel)))
+(assert(Meniu(comanda Comanda D)(felul2 vanat)))
+(assert(Meniu(comanda Comanda E)(felul2 carne de pui)))
+(assert(Meniu(comanda Comanda F)(felul2 carne de curcan)))
+(assert(Meniu(comanda Comanda G)(felul2 peste)))
+(assert(Meniu(comanda Comanda H)(felul2 peste afumat)))
+
+; REGULI
+
+(defrule VRS1 (Meniu(comanda $?comanda)(felul2 carne de porc))
+    =>
+    (printout t ?ziua ": Pentru felul 2 va recomanda un vin rosu sec." crlf)) 
+
+(run)

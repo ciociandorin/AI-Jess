@@ -1,29 +1,29 @@
-*/; - cer roșu → cer senin ( !precipitații, ger)                      
-*/; - ceata seara/dimineața → cald                                    
-*/; - nori cumulus → vreme buna                                       
-*/; - nori cumulus + vânt N→E ⇒ nori nimbostratus                    
-*/; - nori cirrocumulus + vânt N→E ⇒ ploaie                          
-*/; - nori stratocumulus + vânt NE→S ⇒ nori cumulonimbus
-*/; - nori nimbostratus + vânt SV→N ⇒ ploaie scurta
-*/; - nori nimbostratus + vânt NE→S ⇒ ploaie lunga
-*/; - nori cumulonimbus + vizibili înainte de miezul nopții ⇒ zăpadă
-*/; - nori cirrostratus + vânt NE→S ⇒ ploaie înainte cu 15-24 ore
-*/; - nori altostratus + vânt NE→S ⇒ ploaie inaite cu o zi (cer innorat)
-*/; - nori altocumulus + vânt N→S ⇒ ploaie cu 15-20 înainte*/
+; - cer roșu → cer senin ( !precipitații, ger)                      
+; - ceata seara/dimineața → cald                                    
+; - nori cumulus → vreme buna                                       
+; - nori cumulus + vânt N→E ⇒ nori nimbostratus                    
+; - nori cirrocumulus + vânt N→E ⇒ ploaie                          
+; - nori stratocumulus + vânt NE→S ⇒ nori cumulonimbus
+; - nori nimbostratus + vânt SV→N ⇒ ploaie scurta
+; - nori nimbostratus + vânt NE→S ⇒ ploaie lunga
+; - nori cumulonimbus + vizibili înainte de miezul nopții ⇒ zăpadă
+; - nori cirrostratus + vânt NE→S ⇒ ploaie înainte cu 15-24 ore
+; - nori altostratus + vânt NE→S ⇒ ploaie inaite cu o zi (cer innorat)
+; - nori altocumulus + vânt N→S ⇒ ploaie cu 15-20 înainte*/
 
-*/; SABLOANE
-*/; (multislot ziua) doar pentru identificare
+; SABLOANE
+; (multislot ziua) doar pentru identificare
 
 (deftemplate Specificatii
-    (multislot ziua)  
+    (multislot ziua)
     (slot timp)
     (multislot cer)
     (multislot ceata)
     (slot nori)
     (multislot vant))
 
-*/; FAPTE
-*/; daca regulile sunt stricte si nu includ alte specificatii restul declararilor de vor face nil
+; FAPTE
+; daca regulile sunt stricte si nu includ alte specificatii restul declararilor de vor face nil
 
 (assert (Specificatii(ziua Ziua A)(cer rosu)))
 (assert (Specificatii(ziua Ziua B)(timp dimineata)(ceata 1)))
@@ -40,7 +40,7 @@
 
 
 
-*/; REGULI
+; REGULI
 
 (defrule cerSenin (Specificatii(ziua $?ziua)(cer rosu))
     =>
