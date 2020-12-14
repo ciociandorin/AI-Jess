@@ -2,16 +2,28 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="y" key="selection"/>
+		<item value="Ucraina" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Colombia"/>
+			<item value="Venezuela"/>
+			<item value="Guyana"/>
+			<item value="Suriname"/>
+			<item value="FrenchGuiana"/>
+			<item value="Brazil"/>
 			<item value="y"/>
 			<item value="Inroduceti 5 sau 25 centi"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Ucraina"/>
+			<item value="Moldova"/>
+			<item value="Bulgaria"/>
+			<item value="Serbia"/>
+			<item value="Ungaria"/>
+			<item value="Romania"/>
 			<item value="5(N) sau 25(Q)"/>
 		</list>
 	</section>
@@ -19,7 +31,7 @@
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="840" key="DIALOG_X_ORIGIN"/>
-		<item value="274" key="DIALOG_Y_ORIGIN"/>
+		<item value="1120" key="DIALOG_X_ORIGIN"/>
+		<item value="208" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -7,3 +7,87 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.equinox.registry 2 0 2020-11-02 12:08:16.287
 !MESSAGE The extensions and extension-points from the bundle "gov.sandia.jess" are ignored. The bundle is not marked as singleton. 
+!SESSION 2020-12-14 11:25:17.325 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.8.0_271
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-12-14 11:25:56.679
+!MESSAGE Conflicting handlers for org.eclipse.jdt.ui.edit.text.java.format: {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@77ab5214} vs {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@6d420cdd}
+
+!ENTRY org.eclipse.jface 2 0 2020-12-14 11:27:08.697
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-12-14 11:27:08.697
+!MESSAGE A conflict occurred for CTRL+SHIFT+F:
+Binding(CTRL+SHIFT+F,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.format,Format,
+		Format the selected text,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@2c154508,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(CTRL+SHIFT+F,
+	ParameterizedCommand(Command(gov.sandia.jess.commands.format,Format,
+		Format your source code,
+		Category(gov.sandia.jess.commands,Jess,Jess Commands,true),
+		org.eclipse.ui.internal.MakeHandlersGo@395eb363,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	gov.sandia.jess.editor.context,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-12-14 11:27:08.697
+!MESSAGE A conflict occurred for CTRL+SHIFT+P:
+Binding(CTRL+SHIFT+P,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket,Go to Matching Bracket,
+		Moves the cursor to the matching bracket,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@1e194966,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(CTRL+SHIFT+P,
+	ParameterizedCommand(Command(gov.sandia.jess.commands.prettyPrintConstruct,Pretty Print Construct,
+		Pretty-print enclosing construct,
+		Category(gov.sandia.jess.commands,Jess,Jess Commands,true),
+		org.eclipse.ui.internal.MakeHandlersGo@160546b1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	gov.sandia.jess.editor.context,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-12-14 11:27:08.697
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
+		Toggle comment the selected lines,
+		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@103e7c7c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(gov.sandia.jess.commands.toggleComment,Toggle Comment,
+		Comment or uncomment lines of source,
+		Category(gov.sandia.jess.commands,Jess,Jess Commands,true),
+		org.eclipse.ui.internal.MakeHandlersGo@5c3710b3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	gov.sandia.jess.editor.context,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-12-14 11:27:08.697
+!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_UP:
+Binding(CTRL+SHIFT+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.previous.member,Go to Previous Member,
+		Move the caret to the previous member of the compilation unit,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@8b1202a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.jdt.ui.javaEditorScope,,,system)
+Binding(CTRL+SHIFT+ARROW_UP,
+	ParameterizedCommand(Command(gov.sandia.jess.commands.selectConstruct,Select Construct,
+		Select the construct around the cursor,
+		Category(gov.sandia.jess.commands,Jess,Jess Commands,true),
+		org.eclipse.ui.internal.MakeHandlersGo@17b6d426,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	gov.sandia.jess.editor.context,,,system)
