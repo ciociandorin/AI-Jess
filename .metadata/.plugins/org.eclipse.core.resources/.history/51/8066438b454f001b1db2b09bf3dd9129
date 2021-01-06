@@ -1,0 +1,53 @@
+; SEND+   M=1   => SEND+
+; MORE			   1ORE
+;--------
+; MONEY
+
+; Y(D+E) mod 10 
+;
+; E=((D+E) div 10 + N+ R) mod 10
+; 
+; 
+; N=E+1
+;
+;
+
+(assert(cifra 0)(cifra 1)(cifra 2)(cifra 3)(cifra 4)(cifra 5)
+    (cifra 6)(cifra 7)(cifra 8)(cifra 9)
+    (litera S)(litera E)(litera N)(litera D)
+    (litera M)(litera O)(litera R)(litera Y))
+
+
+(deftemplate cripto 
+    (slot litera)
+    (slot cifra)
+    
+    )
+
+(defrule init
+    (litera ?l)
+    (cifra ?c)
+    =>
+    (assert(cripto(litera ?l)(cifra ?c)))
+    
+    )
+
+(defrule solutie
+    (cripto(litera M)(cifra ?m &:(= ?m 1)))
+    (cripto(litera S)(cifra ?s &:(= ?s 9)))
+    (cripto(litera O)(cifra ?o &:(= ?o 0)))
+    (cripto(litera D)(cifra ?d &~ ?o &~ ?s &~ ?m))
+    (cripto(litera E)(cifra ?e &~ ?d &~ ?o &~ ?s &~ ?m))
+    (cripto(litera Y)(cifra ?y &~ ?e &~ ?d &~ ?o &~ ?s &~ ?m &:(= (mod (+ ?d ?e) 10) ?y)))
+    (cripto(litera N)(cifra ?n &~ ?y &~ ?e &~ ?d &~ ?o &~ ?s &~ ?m))
+    (cripto(litera R)(cifra ?r &~ ?n &~ ?y &~ ?e &~ ?d &~ ?o &~ ?s &~ ?m &:(= (mod (+ ?r ?n (/ (+ ?d ?e) 10)) 10) ?e)))
+                        
+    =>
+    (printout t " " ?s ?e ?n ?d crlf)
+    (printout t " " ?m ?o ?r ?e crlf)
+    (printout t "-----------" crlf)
+    (printout t ?m ?o ?n ?e ?y crlf)
+    (printout t crlf)
+                        
+    )
+(run)

@@ -1,0 +1,45 @@
+(assert(cifra 0)(cifra 1)(cifra 2)(cifra 3)(cifra 4)(cifra 5)(cifra 6)(cifra 7)(cifra 8)(cifra 9)
+    (litera H)(litera O)(litera U)(litera S)(litera E)(litera C)(litera T)(litera L)(litera M))
+
+
+(deftemplate cripto 
+    (slot litera)
+    (slot cifra)
+    )
+
+(deftemplate produs (slot val))
+
+(defrule init
+    (litera ?l)
+    (cifra ?c)
+    =>
+    (assert(cripto(litera ?l)(cifra ?c)))
+    )
+
+(defrule sol
+     (cripto(litera C)(cifra ?c &~0))
+     (cripto(litera H)(cifra ?h &~0 &~ ?c))
+     (cripto(litera E)(cifra ?e &~ ?c &~ ?h))
+     (cripto(litera S)(cifra ?s &~ ?c &~ ?h &~ ?e &:(+ ?e ?e)))
+     (cripto(litera L)(cifra ?l &~ ?c &~ ?h &~ ?e &~?s &:(- ?e ?s)))
+     (cripto(litera U)(cifra ?u &~ ?c &~ ?h &~ ?e &~?s &~?l))
+     (cripto(litera T)(cifra ?t &~ ?c &~ ?h &~ ?e &~?s &~?l &~?u))
+     (cripto(litera O)(cifra ?t &~ ?c &~ ?h &~ ?e &~?s &~?l &~?u &~?t))
+     (cripto(litera A)(cifra ?t &~ ?c &~ ?h &~ ?e &~?s &~?l &~?u &~?t &~?o))
+     (cripto(litera M)(cifra ?m &~ ?c &~ ?h &~ ?e &~?s &~?l &~?u &~?t &~?o &~?a &:(+ (mod (+ ?u ?t)10) (/ (+ ?l ?s) 10)))
+    
+    
+    
+    
+     
+    
+    
+
+    =>
+    (printout t " " ?h ?o ?u ?s ?e crlf)
+    (printout t " " ?c ?a ?s ?t ?l ?e crlf)
+    (printout t " " ?h ?o ?l ?m ?e ?s crlf)
+    )
+
+(run)
+(facts)

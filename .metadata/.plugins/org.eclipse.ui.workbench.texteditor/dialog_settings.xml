@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Ucraina" key="selection"/>
+		<item value="u" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="u"/>
 			<item value="Colombia"/>
 			<item value="Venezuela"/>
 			<item value="Guyana"/>
@@ -15,7 +16,6 @@
 			<item value="FrenchGuiana"/>
 			<item value="Brazil"/>
 			<item value="y"/>
-			<item value="Inroduceti 5 sau 25 centi"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Ucraina"/>

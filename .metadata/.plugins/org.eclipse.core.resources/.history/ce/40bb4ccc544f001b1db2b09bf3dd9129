@@ -1,0 +1,32 @@
+(assert(cifra 0)(cifra 1)(cifra 2)(cifra 3)(cifra 4)(cifra 5)
+    (cifra 6)(cifra 7)(cifra 8)(cifra 9)
+    (litera F)(litera A)(litera K)(litera E)(litera N)(litera W)(litera S)(litera L)(litera I))
+
+
+(deftemplate cripto 
+    (slot litera)
+    (slot cifra)
+    )
+
+(deftemplate produs (slot val))
+
+(defrule init
+    (litera ?l)
+    (cifra ?c)
+    =>
+    (assert(cripto(litera ?l)(cifra ?c)))
+    
+    )
+
+(defrule solutie
+    
+    (cripto(litera E)(cifra ?e &:(= ?e 0)))
+    (cripto(litera S)(cifra ?s &~ ?e))
+    (cripto(litera K)(cifra ?k &~ ?e &~ ?s))
+    (cripto(litera W)(cifra ?s &~ ?e &~ ?s &~?k &:(=(- 10 k))))
+                         
+    =>
+    
+    (printout t " "?e ?s ?k ?w  crlf)                    
+    )
+(run)

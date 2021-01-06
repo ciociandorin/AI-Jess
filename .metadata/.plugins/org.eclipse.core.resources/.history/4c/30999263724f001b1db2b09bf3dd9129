@@ -1,0 +1,45 @@
+(assert(cifra 0)(cifra 1)(cifra 2)(cifra 3)(cifra 4)(cifra 5)(cifra 6)(cifra 7)
+    (cifra 8)(cifra 9)(litera S)(litera P)(litera R)(litera I)(litera N)(litera G)(litera A)
+    (litera L)(litera E)(litera G)(litera Y))
+
+(deftemplate cripto 
+    (slot litera)
+    (slot cifra)
+    )
+
+(defrule init
+    (litera ?l)
+    (cifra ?c)
+    =>
+    (assert(cripto(litera ?l)(cifra ?c)))
+    )
+
+(defrule solutie
+    (cripto(litera S)(cifra ?s &~0))
+    (cripto(litera P)(cifra ?p &~ ?s))
+    (cripto(litera R)(cifra ?r &~ ?p &~ ?s))
+    (cripto(litera I)(cifra ?i &~ ?r &~ ?p &~ ?s))
+    (cripto(litera N)(cifra ?n &~ ?i &~ ?r &~ ?p &~ ?s))
+    (cripto(litera A)(cifra ?a &:(= ?a 1)))
+    (cripto(litera L)(cifra ?l &~ ?a &~ ?n &~ ?i &~ ?r &~ ?p &~ ?i))
+    (cripto(litera E)(cifra ?e &~ ?l &~ ?a &~ ?n &~ ?i &~ ?r &~ ?p &~ ?s))
+    (cripto(litera G)(cifra ?g &~ ?e &~ ?l &~ ?a &~ ?n &~ ?i &~ ?r &~ ?p &~ ?s))
+     (cripto(litera Y)(cifra ?y &~ ?g &~ ?e &~ ?l &~ ?a &~ ?n &~ ?i &~ ?r &~ ?p &~ ?s))
+    
+    (test
+            (eq
+            	(+ (* 1 ?g)(+ (* 10 ?n) (+ (* 100 ?i)(+ (* 1000 ?r)(+ (* 10000 ?p) (* 100000 ?s))))))  
+            	(+ (* 1 ?g)(+ (* 10 ?n) (+ (* 100 ?i)(+ (* 1000 ?r)(+ (* 10000 ?p) (* 100000 ?s)))))) 
+            
+            (+ (* 1 ?y) (+ (* 10 ?g)(+ (* 100 ?r)(+ (* 1000 ?e)(+ (* 10000 ?l)(+(* 100000 ?l) (* 100000 ?a))))))))
+        )
+    =>
+    
+    (printout t "~~~~~~~~~~~~~~~"crlf)
+    (printout t " "?s ?p ?r ?i ?n ?g  crlf)
+    (printout t " "?s ?p ?r ?i ?n ?g  crlf)
+    (printout t " "?a ?l ?l ?e ?r ?g ?y crlf)
+    )
+    
+(run)
+(reset)
