@@ -13,6 +13,7 @@
     =>
     (modify ?idvs (val(+ ?ve ?vs)))
     (retract ?idve)
+    (facts)
 )
 
 (defrule afisare 

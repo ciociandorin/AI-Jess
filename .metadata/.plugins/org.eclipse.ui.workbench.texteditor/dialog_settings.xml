@@ -2,29 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="u" key="selection"/>
+		<item value="y" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="u"/>
-			<item value="Colombia"/>
-			<item value="Venezuela"/>
-			<item value="Guyana"/>
-			<item value="Suriname"/>
-			<item value="FrenchGuiana"/>
-			<item value="Brazil"/>
 			<item value="y"/>
+			<item value="g"/>
+			<item value="suma"/>
+			<item value="to"/>
+			<item value="from"/>
+			<item value="retea"/>
+			<item value="}"/>
+			<item value="{"/>
 		</list>
 		<list key="replacehistory">
+			<item value="cardinal"/>
+			<item value="end"/>
+			<item value="start"/>
+			<item value="nod"/>
+			<item value=")"/>
+			<item value="("/>
 			<item value="Ucraina"/>
 			<item value="Moldova"/>
-			<item value="Bulgaria"/>
-			<item value="Serbia"/>
-			<item value="Ungaria"/>
-			<item value="Romania"/>
-			<item value="5(N) sau 25(Q)"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
